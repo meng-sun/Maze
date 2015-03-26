@@ -18,11 +18,23 @@ private GridSpace[][] coordinates;
 			}
 		}
 	}
-	
+	public int getSpacesWide() {
+		return width;
+	}
+	public int getSpacesTall() {
+		return height;
+	}
 	public GridSpace[][] getGrid() {
 		return coordinates;
 	}
 	
+	public void addPlate() {
+		if ()
+	}
+	
+	public GridSpace getGridSpace(int i, int j) {
+		return coordinates[i][j];
+	}
 	//find spaces that the user is allowed to move to
 	public ArrayList<GridSpace> getAllowMovementSpaces() {
 		ArrayList<GridSpace> allowed=new ArrayList();
