@@ -1,0 +1,15 @@
+import java.awt.Graphics;
+import java.awt.event.*;
+import javax.swing.*;
+public abstract class Maze extends JPanel{
+	private Grid grid;
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
