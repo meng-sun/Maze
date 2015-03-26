@@ -1,0 +1,19 @@
+import java.awt.event.*;
+import javax.swing.*;
+public class DisplayGame {
+
+	JFrame frame;
+	JPanel panel;
+	Timer gameTimer;
+	Maze currentMaze;
+	public DisplayGame(){
+		frame=new JFrame();
+		panel=new JPanel();
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
