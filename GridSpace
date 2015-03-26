@@ -39,11 +39,11 @@ private boolean allowMovement;
 		return occupied;
 	}
 
-	public void editGridSpace(GridSpace space, int x, int y, boolean occupy, boolean movement) {
-		space.x=x;
-		space.y=y;
-		space.occupied=occupy;
-		space.allowMovement=movement;
+	public void editGridSpace(int x, int y, boolean occupy, boolean movement) {
+		this.x=x;
+		this.y=y;
+		occupied=occupy;
+		allowMovement=movement;
 	}
 
 	
