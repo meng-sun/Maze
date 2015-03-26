@@ -1,0 +1,11 @@
+public class Level1 extends Maze{
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
