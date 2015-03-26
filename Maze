@@ -1,11 +1,30 @@
 import java.awt.Graphics;
 import java.awt.event.*;
+import java.util.*;
 import javax.swing.*;
+
 public abstract class Maze extends JPanel{
 	private Grid grid;
-	
+	private ArrayList<Plate> plates;
+	private ArrayList<GridSpace> blockedSpaces;
+	public Maze(){
+		setPlates();
+		setGrid();
+	}
+	abstract void setPlates();
+	abstract int gridWidth();
+	abstract int gridHeight();
+	private void setGrid(){
+		grid=new Grid(gridWidth(),gridHeight());
+		for (Plate plate : plates){
+			grid.addPlate(plate);
+		}
+	}
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		for (int counter=0;counter<gridWidth();counter++){
+			
+		}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
