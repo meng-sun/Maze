@@ -1,0 +1,51 @@
+
+public class Plate {
+	private int xStart;
+	private int yStart;
+	private int length;
+	private String orientation; //defined by vertical or horizontal, no caps
+	private Grid grid;
+	private GridSpace[] covered;
+	public Plate(Grid grid, int xStart, int yStart, int length, String orientation) {
+
+		this.xStart=xStart;
+		this.yStart=yStart;
+		this.length=length;
+		this.orientation=orientation;
+		this.grid=grid;
+		covered=getCovered();
+		setGrid();
+	}
+
+	private GridSpace[] getCovered() {
+		covered=new GridSpace[length];
+		if (orientation=="vertical") {
+			for (int i=0; i<length; i++) {
+				covered[i]=grid.getGridSpace(xStart, yStart+i);
+			}
+
+		} else if (orientation=="horizontal") {
+			for (int i=0; i<length; i++) {
+				covered[i]=grid.getGridSpace(xStart+i, yStart);
+			}
+		}
+		return covered;
+	}
+
+	public GridSpace[] getSpacesCovered() {
+		return covered;
+	}
+	private void setGrid() {
+		if (orientation=="vertical") {
+			for (int i=0; i<length; i++) {
+				grid.getGridSpace(xStart, yStart+i).editMovement(false);
+			}
+
+		} else if (orientation=="horizontal") {
+			for (int i=0; i<length; i++) {
+				grid.getGridSpace(xStart+i, yStart).editMovement(false);
+			}
+		}
+
+	}
+}
