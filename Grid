@@ -5,9 +5,11 @@ public class Grid {
 private int width;
 private int height;
 private GridSpace[][] coordinates;
+private ArrayList<Plate> plates;
 	public Grid(int width, int height) {
 		this.width=width;
 		this.height=height;
+		plates=new ArrayList();
 	}
 
 	private void createSpaces() {
@@ -18,11 +20,48 @@ private GridSpace[][] coordinates;
 			}
 		}
 	}
-	
+	public int getSpacesWide() {
+		return width;
+	}
+	public int getSpacesTall() {
+		return height;
+	}
 	public GridSpace[][] getGrid() {
 		return coordinates;
 	}
 	
+	public void addPlate(int xStart, int yStart, int length, String orientation) {
+		ArrayList<GridSpace> allowed=getAllowMovementSpaces();
+		int[] works=new int[length];
+		for (GridSpace space: allowed) {
+			for (int m=0; m<length; m++) {
+				if (orientation=="vertical") {
+					if (xStart==space.getX()) {
+						if (yStart+m==space.getY()) {
+							works[m]=-(yStart+m);
+						} 
+					}
+				} else if (orientation=="horizontal") {
+					if (yStart==space.getY()) {
+						if (xStart+m==space.getX()) {
+							works[m]=-(xStart+m);
+						}
+					}
+				}
+				
+			}
+		}
+		for (int num: works) {
+			if (num==0) {
+				return;
+			}
+		}
+		
+	}
+	
+	public GridSpace getGridSpace(int i, int j) {
+		return coordinates[i][j];
+	}
 	//find spaces that the user is allowed to move to
 	public ArrayList<GridSpace> getAllowMovementSpaces() {
 		ArrayList<GridSpace> allowed=new ArrayList();
